@@ -11,10 +11,12 @@
 #import <UIKit/UIKit.h>
 
 @implementation AVC_Protocol_Module
-@synthesize eventCallback;
+CONFIRM_DWMEDIA_EVENT_PROTOCOL
+CONFIRM_DWMEDIA_MODULE_PROTOCOL
 -(void)configNewAVCWithEventCallbackWithCurrentVC:(id)vc {
     AViewController * avc = [AViewController new];
-    avc.eventCallback = self.eventCallback;
+    avc.dw_EventCallback = self.dw_EventCallback;
+    avc.bgColor = self.dw_UserInfo[@"bgColor"];
     [vc presentViewController:avc animated:YES completion:nil];
 }
 

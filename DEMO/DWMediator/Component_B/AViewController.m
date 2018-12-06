@@ -7,20 +7,23 @@
 //
 
 #import "AViewController.h"
+#import "ViewController.h"
 
 @interface AViewController ()
 
 @end
 
 @implementation AViewController
-@synthesize eventCallback;
+@synthesize dw_EventCallback;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = self.bgColor;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSLog(@"%@",self.eventCallback(@"TouchBegin",0,@{@"key":@"value"}));
+    if (self.dw_EventCallback) {
+        NSLog(@"%@",self.dw_EventCallback(@"TouchBegin",0,@{@"key":@"value"}));
+    }
 }
 
 /*

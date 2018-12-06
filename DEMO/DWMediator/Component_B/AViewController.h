@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "DWMediator.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AViewController : UIViewController<DWMediatorEventProtocol>
 
-@end
+@property (nonatomic ,strong) UIColor * bgColor;
 
-NS_ASSUME_NONNULL_END
+@end

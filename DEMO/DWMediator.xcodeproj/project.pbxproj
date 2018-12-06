@@ -16,6 +16,7 @@
 		9BF6444521B8CDE1007D596F /* DWMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6444421B8CDE1007D596F /* DWMediator.m */; };
 		9BF6444821B8DF74007D596F /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6444721B8DF74007D596F /* AViewController.m */; };
 		9BF6444B21B8DFA8007D596F /* AVC_Protocol_Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6444A21B8DFA8007D596F /* AVC_Protocol_Module.m */; };
+		9BF6444F21B910C5007D596F /* DWMediatorEventModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6444E21B910C5007D596F /* DWMediatorEventModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		9BF6444921B8DFA8007D596F /* AVC_Protocol_Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVC_Protocol_Module.h; sourceTree = "<group>"; };
 		9BF6444A21B8DFA8007D596F /* AVC_Protocol_Module.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVC_Protocol_Module.m; sourceTree = "<group>"; };
 		9BF6444C21B8E048007D596F /* Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Protocol.h; sourceTree = "<group>"; };
+		9BF6444D21B910C5007D596F /* DWMediatorEventModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWMediatorEventModule.h; sourceTree = "<group>"; };
+		9BF6444E21B910C5007D596F /* DWMediatorEventModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWMediatorEventModule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,18 +74,14 @@
 				9BF6444221B8CDCF007D596F /* DWMediator */,
 				9BF6442B21B8CD64007D596F /* AppDelegate.h */,
 				9BF6442C21B8CD64007D596F /* AppDelegate.m */,
-				9BF6442E21B8CD64007D596F /* ViewController.h */,
-				9BF6442F21B8CD64007D596F /* ViewController.m */,
+				9BF6444C21B8E048007D596F /* Protocol.h */,
+				9BF6445121B91CC8007D596F /* Component_A */,
+				9BF6445021B91C95007D596F /* Component_B */,
 				9BF6443121B8CD64007D596F /* Main.storyboard */,
 				9BF6443421B8CD65007D596F /* Assets.xcassets */,
 				9BF6443621B8CD65007D596F /* LaunchScreen.storyboard */,
 				9BF6443921B8CD65007D596F /* Info.plist */,
 				9BF6443A21B8CD65007D596F /* main.m */,
-				9BF6444621B8DF74007D596F /* AViewController.h */,
-				9BF6444721B8DF74007D596F /* AViewController.m */,
-				9BF6444C21B8E048007D596F /* Protocol.h */,
-				9BF6444921B8DFA8007D596F /* AVC_Protocol_Module.h */,
-				9BF6444A21B8DFA8007D596F /* AVC_Protocol_Module.m */,
 			);
 			path = DWMediator;
 			sourceTree = "<group>";
@@ -92,9 +91,31 @@
 			children = (
 				9BF6444321B8CDE1007D596F /* DWMediator.h */,
 				9BF6444421B8CDE1007D596F /* DWMediator.m */,
+				9BF6444D21B910C5007D596F /* DWMediatorEventModule.h */,
+				9BF6444E21B910C5007D596F /* DWMediatorEventModule.m */,
 			);
 			name = DWMediator;
 			path = ../../DWMediator;
+			sourceTree = "<group>";
+		};
+		9BF6445021B91C95007D596F /* Component_B */ = {
+			isa = PBXGroup;
+			children = (
+				9BF6444621B8DF74007D596F /* AViewController.h */,
+				9BF6444721B8DF74007D596F /* AViewController.m */,
+				9BF6444921B8DFA8007D596F /* AVC_Protocol_Module.h */,
+				9BF6444A21B8DFA8007D596F /* AVC_Protocol_Module.m */,
+			);
+			path = Component_B;
+			sourceTree = "<group>";
+		};
+		9BF6445121B91CC8007D596F /* Component_A */ = {
+			isa = PBXGroup;
+			children = (
+				9BF6442E21B8CD64007D596F /* ViewController.h */,
+				9BF6442F21B8CD64007D596F /* ViewController.m */,
+			);
+			path = Component_A;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +193,7 @@
 				9BF6444B21B8DFA8007D596F /* AVC_Protocol_Module.m in Sources */,
 				9BF6443B21B8CD65007D596F /* main.m in Sources */,
 				9BF6442D21B8CD64007D596F /* AppDelegate.m in Sources */,
+				9BF6444F21B910C5007D596F /* DWMediatorEventModule.m in Sources */,
 				9BF6444521B8CDE1007D596F /* DWMediator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
