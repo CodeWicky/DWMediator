@@ -1,4 +1,2 @@
 # DWMediator
-试图学习一个中间件思想
-
-https://github.com/alibaba/BeeHive
+一个中间件方案，借鉴了CTMediator和BeeHive的思想。
