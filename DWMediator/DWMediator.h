@@ -8,12 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+typedef id(^DWMediatorEventCallback)(NSString * eventName,NSInteger subType,id userInfo);
+
+@protocol DWMediatorEventProtocol <NSObject>
+
+@property (nonatomic ,copy) DWMediatorEventCallback eventCallback;
+
+@end
+
+@protocol DWMediatorModuleProtocol <NSObject>
+
+@optional
++(instancetype)createInstance;
+
+@end
 
 @interface DWMediator : NSObject
 
 +(instancetype)mediator;
 
-@end
++(id)createModuleWithProtocol:(Protocol *)protocol cache:(BOOL)cache;
 
-NS_ASSUME_NONNULL_END
++(id)createModuleWithProtocol:(Protocol *)protocol cache:(BOOL)cache eventCallback:(DWMediatorEventCallback)eventCallback;
+
++(void)removeModuleCacheWithProtocol:(Protocol *)protocol;
+
++(void)clearModuleCache;
+
+@end
