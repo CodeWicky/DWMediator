@@ -26,7 +26,10 @@ DWMediator则是借鉴了`CTMediator`和`BeeHive`两者的思想实现的Protoco
 
 首先，需求是组件A想要与组件B进行通信。那么大概要做如下几步：
 
-- 1.组件A、组件B
+- 1.组件A、组件B依赖**DWMediator**
+- 2.为组件B创建专用的Protocol，例如**Protocol_B**。并将Protocol_B与DWMediator封装在一个中间件组件中。
+- 3.为组件B创建专用Module，如果协议名叫**Protocol_B**，那么Module名为**Protocol_B_Module**。这里Module名要遵守这个规范，这是免注册的关键点。同时Module要**遵循Protocol_B协议**，Module中可以引入组件B并在**协议方法中调用组件B的接口**。最后把Module跟组件B封装成一个组件。至此组件B的准备工作已经完成。
+- 4.最后，在组件A中想要调用组件B的地方，**根据协议Protocol_B生成一个遵循Protocol_B协议的id类型实例**。然后直接调用协议接口即可。
 
 
 
