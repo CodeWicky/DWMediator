@@ -30,15 +30,19 @@ static DWMediator * _inner_mediator = nil;
 
 +(id)createModuleWithURL:(NSString *)urlString cache:(BOOL)cache eventCallback:(DWMediatorEventCallback)eventCallback {
     if (urlString.length == 0) {
-        NSError * err = [NSError errorWithDomain:DWMediatorCreateModuleErrorDomain code:4 userInfo:@{@"err_msg":[NSString stringWithFormat:@"Can't parse url string whose length is 0."]}];
-        [DWMediator mediator].noResponseCallback(nil, err);
+        if ([DWMediator mediator].noResponseCallback) {
+            NSError * err = [NSError errorWithDomain:DWMediatorCreateModuleErrorDomain code:4 userInfo:@{@"err_msg":[NSString stringWithFormat:@"Can't parse url string whose length is 0."]}];
+            [DWMediator mediator].noResponseCallback(nil, err);
+        }
         return nil;
     }
     
     NSURL * url = [NSURL URLWithString:urlString];
     if (!url) {
-        NSError * err = [NSError errorWithDomain:DWMediatorCreateModuleErrorDomain code:5 userInfo:@{@"err_msg":[NSString stringWithFormat:@"Can't parse url string who is invalid."]}];
-        [DWMediator mediator].noResponseCallback(nil, err);
+        if ([DWMediator mediator].noResponseCallback) {
+            NSError * err = [NSError errorWithDomain:DWMediatorCreateModuleErrorDomain code:5 userInfo:@{@"err_msg":[NSString stringWithFormat:@"Can't parse url string who is invalid."]}];
+            [DWMediator mediator].noResponseCallback(nil, err);
+        }
         return nil;
     }
     
@@ -50,8 +54,10 @@ static DWMediator * _inner_mediator = nil;
     NSString * protocolString = url.host;
     Protocol * protocol = NSProtocolFromString(protocolString);
     if (!protocol) {
-        NSError * err = [NSError errorWithDomain:DWMediatorCreateModuleErrorDomain code:1 userInfo:@{@"err_msg":[NSString stringWithFormat:@"Can't load protocol <%@>.",protocolString]}];
-        [DWMediator mediator].noResponseCallback(nil, err);
+        if ([DWMediator mediator].noResponseCallback) {
+            NSError * err = [NSError errorWithDomain:DWMediatorCreateModuleErrorDomain code:1 userInfo:@{@"err_msg":[NSString stringWithFormat:@"Can't load protocol <%@>.",protocolString]}];
+            [DWMediator mediator].noResponseCallback(nil, err);
+        }
         return nil;
     }
     
