@@ -37,7 +37,8 @@ static DWMediator * _inner_mediator = nil;
         return nil;
     }
     
-    NSURL * url = [NSURL URLWithString:urlString];
+    ///url转换时应做urlEncoding防止中文识别错误
+    NSURL * url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]]];
     if (!url) {
         if ([DWMediator mediator].noResponseCallback) {
             NSError * err = [NSError errorWithDomain:DWMediatorCreateModuleErrorDomain code:5 userInfo:@{@"err_msg":[NSString stringWithFormat:@"Can't parse url string who is invalid."]}];
@@ -69,9 +70,15 @@ static DWMediator * _inner_mediator = nil;
     NSMutableDictionary * userInfo = [NSMutableDictionary dictionary];
     NSArray * items = [queryString componentsSeparatedByString:@"&"];
     for (NSString * item in items) {
-        NSArray * keyValues = [item componentsSeparatedByString:@"="];
+        NSArray <NSString *>* keyValues = [item componentsSeparatedByString:@"="];
         if (keyValues.count == 2) {
-            [userInfo setValue:keyValues.lastObject forKey:keyValues.firstObject];
+            ///由于做了encoding，所以解析k-v的时候要做decode
+            
+            NSString * key = [keyValues.firstObject stringByRemovingPercentEncoding];
+            NSString * value = [keyValues.lastObject stringByRemovingPercentEncoding];
+            if (key.length && value.length) {
+                [userInfo setValue:value forKey:key];
+            }
         }
     }
     

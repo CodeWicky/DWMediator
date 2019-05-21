@@ -18,6 +18,15 @@
  组件A、组件B同时依赖DWMediator及Protocol文件。例如为B组件添加 B_Protocol 进行调用，则在B组件中建立 B_Protocol_Module ，并遵循 B_Protocol 协议。在 module 中的协议方法调用组件B方法，并在组件A中使用 DWMediator 获取遵循 B_Protocol 协议的实例 module，并使用 module 调用协议方法完成组件间通信。
  
  具体使用方法请查看github(https://github.com/CodeWicky/DWMediator)中的注释或者提供的DEMO。
+ 
+ version 0.0.1
+ 提供基础跳转功能
+ 
+ version 0.0.2
+ 提供相关协议
+ 
+ version 0.0.3
+ 修复因url中含有中文导致url生成为nil的bug
  */
 
 extern NSString * const DWMediatorSystemEvent;///系统事件
