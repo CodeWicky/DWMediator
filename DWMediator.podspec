@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name = 'DWMediator'
-s.version = '0.0.2'
+s.version = '0.0.3'
 s.license = { :type => 'MIT', :file => 'LICENSE' }
 s.summary = '基于Protocol的免注册的中间件方案。'
 s.homepage = 'https://github.com/CodeWicky/DWMediator'
